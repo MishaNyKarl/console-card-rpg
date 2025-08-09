@@ -74,7 +74,10 @@ class Player:
                f"Equipment: {equipped_count}")
 
     def _put_cards(self, cards, deck):
-        deck.extend(cards)
+        if isinstance(cards, list):
+            deck.extend(cards)
+        else:
+            deck.append(cards)
         return len(deck)
 
     def add_to_loot_deck(self, cards) -> int:
